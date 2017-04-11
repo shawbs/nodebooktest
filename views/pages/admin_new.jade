@@ -1,0 +1,33 @@
+include ../layout
+
+.container
+	.row
+		.col-md-8
+			form.form-horizontal(action="/admin/book/new",method="POST")
+				legend 后台录入
+				input(type="hidden",name="book[_id]",value="#{book._id}")
+				.form-group
+					label.col-sm-2.control-label(for="book_name") 书名
+					.col-sm-10
+						input.form-control#book_name(placeholder="书名",value="#{book.name}",name="book[name]")
+				
+				.form-group
+					label.col-sm-2.control-label(for="book_author") 作者
+					.col-sm-10
+						input.form-control#book_author(placeholder="书籍的作者",value="#{book.author}",name="book[author]")
+				
+				.form-group
+					label.col-sm-2.control-label(for="book_summry") 简介
+					.col-sm-10
+						textarea.form-control#book_summry(rows="3",placeholder="书籍的概述",name="book[summary]") #{book.summary}
+				
+				.form-group
+					label.col-sm-2.control-label(for="book_poster") 封面
+					.col-sm-10
+						input.form-control#book_poster(placeholder="书籍封面图片的url地址",value="#{book.poster}",name="book[poster]")
+
+				.form-group
+					.col-sm-offset-2.col-sm-10
+						button.btn.btn-default(type="submit") 录入
+
+		.col-md-4

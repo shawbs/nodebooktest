@@ -1,0 +1,29 @@
+include ../layout
+
+
+
+
+.container
+	.row
+		.jumbotron
+			h2 hello world
+			p.
+				This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.
+			button.btn.btn-primary 加入我们
+	.row
+		each book, i in books
+			.col-sm-3
+				.thumbnail
+					a(href="/book/#{book._id}")
+						img(src="#{book.poster}",width="100%")
+					
+					.caption
+						h3 #{i+1}, #{book.name}
+						p #{book.summary}
+						p
+							a.btn.btn-primary(href="/book/#{book._id}",role="button") 观看
+							&nbsp;
+							a.btn.btn-default(href="##",role="button") 收藏
+						
+
+include ../includes/footer

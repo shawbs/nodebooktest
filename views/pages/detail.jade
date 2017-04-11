@@ -1,0 +1,17 @@
+include ../layout
+
+.container
+	.row
+		.col-sm-3
+			.book-cover
+				img(src="#{book.poster}", width="100%")
+
+		.col-sm-3
+			dl
+				dt #{book.name}
+				dd #{book.author}
+				dd #{book.summary}
+				dd
+					a.btn.btn-primary(href="##") 观看
+					a.btn.btn-default(href="##") 收藏
+

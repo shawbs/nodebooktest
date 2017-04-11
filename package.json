@@ -1,0 +1,23 @@
+{
+  "name": "nodebook",
+  "version": "1.0.0",
+  "description": "node + mongodb 实战项目",
+  "main": "app.js",
+  "dependencies": {},
+  "devDependencies": {
+    "body-parser": "^1.17.1",
+    "express": "^4.15.2",
+    "jade": "^1.11.0",
+    "moment": "^2.18.1",
+    "mongoose": "^4.9.4",
+    "underscore": "^1.8.3"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "node实战"
+  ],
+  "author": "sgdy",
+  "license": "MIT"
+}

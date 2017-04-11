@@ -1,0 +1,51 @@
+include ../layout
+
+mixin strtrim(target,size,str)
+	if target.length > size
+		| #{target.substr(0,size) + str}
+	else
+		| #{target}
+
+.container
+	.row
+		.panel.panel-primary
+			.panel-heading 
+				strong 后台列表管理
+			.panel-body
+				p 这里可以对数据库的书进行 新增，删除，修改操作
+
+			table.table
+				thead
+					tr
+						th #
+						th 书名
+						th 作者
+						th 简介
+						th 图片源
+						th 上传时间
+						th 更新时间
+						th
+						th
+						th
+							a(href="/admin/book").btn.btn-primary 录入
+				tbody
+					each book in books
+						tr(class="item-id-#{book._id}")
+							td #{book._id}
+							td #{book.name}
+							td #{book.author}
+							td
+								+strtrim(book.summary,10,'...')
+							td
+								+strtrim(book.poster,10,'...')
+							td #{moment(book.meta.createAt).format('MM/DD/YYYY')}
+							td #{moment(book.meta.updateAt).format('MM-DD-YYYY')}
+							td 
+								a.btn.btn-link(href="/book/#{book._id}") 查看
+							td
+								a.btn-link.btn(href="/admin/update/#{book._id}") 更新
+							td
+								button.btn-danger.btn(data-id="#{book._id}",data-name="remove") 删除
+
+
+script(src="/js/main.js")
